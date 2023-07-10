@@ -6,7 +6,6 @@
  * v1.0 - Initial Logic.
  * v1.1 - Rearranged code to functions.
  * v1.3 - Output format bug fixes.
- *
  */
 
 /**
