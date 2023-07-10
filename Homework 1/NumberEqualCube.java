@@ -1,8 +1,11 @@
 /**
  * NumberEqualCube.java
- * Version:
+ * Version: v1.2
  *
  * Revisions:
+ * v1.0 - Initial Logic.
+ * v1.1 - Rearranged code to functions.
+ * v1.3 - Output format bug fixes.
  *
  */
 
@@ -25,27 +28,27 @@ public class NumberEqualCube {
     /**
      * Method to check number for described pattern.
      */
-    private static void checkPattern() {
-        for ( int num = 1; num <= 10000; num++ ) {
+    private static void checkNumberEqualCube() {
+        for ( int num = 1; num <= 100000; num++ ) {
             int sum = 0;
-            int temp = num;
+
+            // Convert number to character array
             char[] numAsChar = ( "" + num ).toCharArray();
             int len = numAsChar.length;
-            sum = sumOfNum(temp, len, sum);
+            sum = sumOfNum( num, len, sum);
 
             if(sum == num){
                 printFormattedOutput(num, len, numAsChar);
             }
-
-
         }
     }
 
     /**
-     * Helper method to print the output in expected format
-     * @param num
-     * @param len
-     * @param numAsChar
+     * Helper method to print the output in expected format.
+     *
+     * @param num number to check for pattern
+     * @param len length of number in character form
+     * @param numAsChar number as a string
      */
     private static void printFormattedOutput( int num, int len, char[] numAsChar ) {
         System.out.print( "\n" + num + " = " );
@@ -58,6 +61,14 @@ public class NumberEqualCube {
         }
     }
 
+    /**
+     * Helper function to check if a number is the sum of cubes of its individual digits.
+     *
+     * @param temp temporary variable
+     * @param len length of current number
+     * @param sum sum of cubes of individual digits
+     * @return sum of cubes of individual digits
+     */
     private static int sumOfNum(int temp, int len, int sum) {
         while ( temp > 0 ) {
             int rem = temp % 10;
@@ -85,6 +96,6 @@ public class NumberEqualCube {
     }
 
     public static void main ( String[] args ) {
-        checkPattern();
+        checkNumberEqualCube();
     }
 }
